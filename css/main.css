@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/* 
+Theme Rules
+	Theme Rules aren’t used as often within a project and because of
+that I was quite reluctant to include them as their own category.
+Some projects do have a need for them, though, as we did when
+working on Yahoo! Mail.
+	It is probably self-evident but a theme defines colours and images
+that give your application or site its look and feel. Separating the
+theme out into its own set of styles allows for those styles to be easily
+redefined for alternate themes. The need for theming within a
+project is necessary when you want the user to receive an alternate
+skin that provides some cosmetic alterations.
+	For example, your site may have different colours for different sections
+of the site. Or you may allow users to customize the colour
+based on a user preference. Or you may need to provide themes
+based on locale such as country or language. 
+*/
+/* 
+Base Rules
+	A Base rule is applied to an element using an element selector, a
+descendent selector, or a child selector, along with any pseudoclasses.
+It doesn’t include any class or ID selectors. It is defining the
+default styling for how that element should look in all occurrences
+on the page.
+*/
+body {
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+p:first-of-type {
+  margin-top: 0;
+}
+
+/* 
+Layout Rules
+	CSS, by its very nature, is used to lay elements out on the page.
+However, there is a distinction between layouts dictating the major
+and minor components of a page. The minor components—such as
+a callout, or login form, or a navigation item—sit within the scope
+of major components such as a header or footer. I refer to the minor
+components as Modules and will dive into those in the next section.
+The major components are referred to as Layout styles.
+	Layout styles can also be divided into major and minor styles based
+on reuse. Major layout styles such as header and footer are traditionally
+styled using ID selectors but take the time to think about
+the elements that are common across all components of the page
+and use class selectors where appropriate.
+*/
+nav[role="navigation"] {
+  background-color: #242424;
+  margin-bottom: 20px;
+  min-height: 25px;
+}
+
+header[role="banner"] {
+  background-color: #7d7d7d;
+  color: #fff;
+}
+
+.banner-logo {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  width: 24%;
+}
+@media (max-width: 480px) {
+  .banner-logo {
+    -webkit-transition: width 1s linear;
+    transition: width 1s linear;
+    width: 100%;
+  }
+}
+
+.banner-logo svg {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.banner-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  width: 76%;
+}
+@media (max-width: 480px) {
+  .banner-text {
+    width: 100%;
+    -webkit-transition: width 1s linear;
+    transition: width 1s linear;
+  }
+}
+
+.group:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.work {
+  background: url("../img/seattle.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  margin-top: 20px;
+  min-height: 300px;
+}
+
+.branding, .interactive, .marketing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  width: 33.333333%;
+}
+@media (max-width: 480px) {
+  .branding, .interactive, .marketing {
+    width: 100%;
+  }
+}
+
+.branding {
+  padding: 20px 10px 20px 0;
+}
+@media (max-width: 480px) {
+  .branding {
+    padding: 20px;
+  }
+}
+
+.interactive {
+  padding: 20px 10px;
+}
+@media (max-width: 480px) {
+  .interactive {
+    padding: 20px 0;
+  }
+}
+
+.marketing {
+  padding: 20px 0 20px 20px 10px;
+}
+@media (max-width: 480px) {
+  .marketing {
+    padding: 20px 0;
+  }
+}
+
+.inner {
+  background-color: #717171;
+  min-height: 200px;
+}
+
+footer[role="contentinfo"] {
+  background-color: #242424;
+  color: #fff;
+  float: left;
+}
+
+.contentinfo-social, .contentinfo-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+
+.contentinfo-social {
+  padding: 20px;
+  width: 30%;
+}
+@media (max-width: 480px) {
+  .contentinfo-social {
+    width: 100%;
+  }
+}
+
+.contentinfo-text {
+  padding: 20px 20px 20px 0;
+  width: 30%;
+}
+@media (max-width: 480px) {
+  .contentinfo-text {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+/* 
+Module Rules
+	As briefly mentioned in the previous section, a Module is a more
+discrete component of the page. It is your navigation bars and your
+carousels and your dialogs and your widgets and so on. This is the
+meat of the page. Modules sit inside Layout components. Modules
+can sometimes sit within other Modules, too. Each Module should
+be designed to exist as a standalone component. In doing so, the
+page will be more flexible. If done right, Modules can easily be
+moved to different parts of the layout without breaking.
+	When defining the rule set for a module, avoid using IDs and element
+selectors, sticking only to class names. A module will likely
+contain a number of elements and there is likely to be a desire to
+use descendent or child selectors to target those elements. 
+*/
+.work h1 {
+  color: #fff;
+  font-size: 80px;
+  font-size: 5rem;
+  margin: 0;
+  line-height: 300px;
+  text-align: center;
+}
+
+/* 
+State Rules
+	A state is something that augments and overrides all other styles.
+For example, an accordion section may be in a collapsed or expanded
+state. A message may be in a success or error state.
+	States are generally applied to the same element as a layout rule or
+applied to the same element as a base module class. 
+*/
